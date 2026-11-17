@@ -478,7 +478,6 @@ const CITIES = [
 ];
 
 const STORAGE_KEY = 'lvge_state_v2';
-const SAMPLE_SCORES = { wild: 38, culture: 52, food: 80, urban: 94, slow: 42, vitality: 90 };
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -507,7 +506,6 @@ const refs = {
 let state = {
   answers: Array(24).fill(null),
   current: 0,
-  previewMode: false,
   currentScores: null,
   playStyle: null
 };
@@ -576,7 +574,6 @@ function getChapterAndQuestion(index) {
 function startNewTest() {
   state.answers = Array(24).fill(null);
   state.current = 0;
-  state.previewMode = false;
   state.currentScores = null;
   state.playStyle = null;
   saveState();
@@ -789,8 +786,7 @@ function cityMotifSVG(motif) {
   return `<svg viewBox="0 0 72 72" aria-hidden="true">${draw}</svg>`;
 }
 
-function showResult(scores, previewMode = false, playStyleOverride = null) {
-  state.previewMode = previewMode;
+function showResult(scores, playStyleOverride = null) {
   state.currentScores = scores;
   const found = selectPersona(scores);
   activePersona = found.persona;
@@ -1158,15 +1154,6 @@ function resume() {
   }
 }
 
-function preview() {
-  state.previewMode = true;
-  showResult({ ...SAMPLE_SCORES }, true, { tag: '乐园玩家', note: '为一场过山车，专门去一座城' });
-}
-
-function openSampleWithoutState() {
-  preview();
-}
-
 function hexToRgba(hex, alpha) {
   const value = hex.replace('#', '');
   const bigint = parseInt(value.length === 3 ? value.split('').map(character => character + character).join('') : value, 16);
@@ -1193,7 +1180,6 @@ document.addEventListener('click', event => {
     if (action === 'resume') resume();
     if (action === 'back') goBack();
     if (action === 'home') goHome();
-    if (action === 'preview') preview();
     if (action === 'download') downloadShareCard();
     if (action === 'copy') copyShareText();
     if (action === 'restart') restart();
