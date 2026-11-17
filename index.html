@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4ede3" />
+  <meta name="description" content="旅格：24 个旅行瞬间，测出你的城市旅行人格。" />
+  <title>旅格 · 城市旅行人格测试</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <button class="brand" data-action="home" aria-label="返回首页">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 2.5c1.2 10.4 6.8 16 17.5 17.5C26.8 21.5 21.2 27.1 20 37.5 18.8 27.1 13.2 21.5 2.5 20 13.2 18.5 18.8 12.9 20 2.5Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span>旅格</span>
+      <small>TRAVEL PERSONA</small>
+    </button>
+    <div class="header-meta">
+      <span class="header-note">24 个旅行瞬间</span>
+      <button class="text-button" data-action="preview">预览示例 <span>↗</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="screen landing-screen is-active" id="landingScreen" aria-labelledby="heroTitle">
+      <div class="landing-copy">
+        <div class="eyebrow reveal">A TEST FOR THE WAY YOU TRAVEL</div>
+        <h1 class="hero-title reveal" id="heroTitle">
+          <span>24 个旅行瞬间，</span>
+          <span>测出你的</span>
+          <em>城市旅行人格</em>
+        </h1>
+        <p class="hero-lead reveal">
+          山野、人文、烟火、都市、松弛、活力。<br />
+          看看你会被哪座城市或哪片旷野，刚刚好地接住。
+        </p>
+        <div class="hero-actions reveal">
+          <button class="primary-button" id="startButton" data-action="start">
+            <span>开始测我的旅格</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="resume-button" id="resumeButton" data-action="resume" hidden>
+            继续上次测试
+          </button>
+        </div>
+        <div class="hero-facts reveal">
+          <span><i class="fact-dot"></i> 6 个维度</span>
+          <span><i class="fact-dot"></i> 24 个情境</span>
+          <span><i class="fact-dot"></i> 约 4 分钟</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-halo"></div>
+        <svg class="art-route" viewBox="0 0 560 680">
+          <path d="M-20 530C80 450 100 360 205 375c96 13 91 124 175 102 76-20 68-118 180-125" />
+          <circle cx="57" cy="478" r="6" />
+          <circle cx="535" cy="348" r="6" />
+        </svg>
+        <div class="postcard postcard-main">
+          <div class="postcard-top">
+            <span>VOL. 06</span>
+            <span>城市旅行档案</span>
+          </div>
+          <div class="postcard-scene">
+            <div class="scene-sun"></div>
+            <div class="scene-mountain mountain-back"></div>
+            <div class="scene-mountain mountain-front"></div>
+            <div class="scene-water"></div>
+            <div class="scene-caption">GO SOMEWHERE<br />THAT FEELS LIKE YOU.</div>
+          </div>
+          <div class="postcard-bottom">
+            <span>山野 · 松弛 · 落日</span>
+            <span>N 24° 52'</span>
+          </div>
+        </div>
+        <div class="postcard postcard-small">
+          <div class="mini-stamp">去<br />远<br />方</div>
+          <div class="mini-lines">
+            <span></span><span></span><span></span>
+          </div>
+          <small>POSTCARD FROM SOMEWHERE</small>
+        </div>
+        <div class="vertical-poem">去看海，去吹风，去浪费时间。</div>
+        <div class="orbit-caption">YOUR TRAVEL DNA / 2026</div>
+      </div>
+
+      <div class="landing-footer">
+        <span>不是标准答案，是你此刻想去的远方。</span>
+        <span class="scroll-cue">向下，开始一段小小的旅行 <i>↓</i></span>
+      </div>
+    </section>
+
+    <section class="screen test-screen" id="testScreen" aria-live="polite">
+      <div class="test-shell">
+        <div class="test-topbar">
+          <button class="icon-button" id="backButton" data-action="back" aria-label="上一题">
+            <svg viewBox="0 0 24 24"><path d="M19 12H6m5-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="chapter-progress">
+            <div class="chapter-progress-copy">
+              <span id="chapterKicker">第 1 站 / 6</span>
+              <strong id="chapterTitle">风从山野来</strong>
+            </div>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+          <div class="question-count"><strong id="questionNumber">01</strong><span>/ 24</span></div>
+        </div>
+
+        <div class="chapter-stamps" id="chapterStamps" aria-label="章节进度"></div>
+
+        <article class="question-card" id="questionCard">
+          <div class="question-meta">
+            <span class="question-index" id="questionIndex">QUESTION 01</span>
+            <span class="question-situation">选第一反应就好</span>
+          </div>
+          <h2 class="question-title" id="questionTitle"></h2>
+          <p class="question-aside" id="questionAside"></p>
+          <div class="options-grid" id="optionsGrid"></div>
+          <div class="question-footnote">
+            <span class="tiny-star">✳</span>
+            <span>没有正确答案，只有更像你的那个选择。</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="screen result-screen" id="resultScreen" aria-live="polite">
+      <div class="result-hero">
+        <div class="result-hero-copy">
+          <div class="result-topline">
+            <span id="personaCode">TRAVEL PERSONA / NO. 04</span>
+            <span>你的六维旅行 DNA</span>
+          </div>
+          <div class="result-title-wrap">
+            <div class="result-kicker-row">
+              <span class="result-kicker" id="resultKicker">山野 × 松弛</span>
+              <span class="energy-badge" id="energyBadge">
+                <strong id="energyTag">间歇性高能量人</strong>
+                <small id="energyNote">白天省电，晚上开机</small>
+              </span>
+              <span class="play-badge" id="playBadge">
+                <small>玩法偏好</small>
+                <strong id="playTag">乐园玩家</strong>
+              </span>
+            </div>
+            <h1 id="personaName">山海出逃者</h1>
+            <p class="persona-tagline" id="personaTagline">把日程表留在城市，把呼吸带到山海。</p>
+            <p class="persona-description-hero" id="personaDescription"></p>
+          </div>
+          <div class="persona-keywords" id="personaKeywords"></div>
+        </div>
+        <div class="result-hero-mark" aria-hidden="true">
+          <div class="result-sun"></div>
+          <div class="result-seal">
+            <span>旅格</span>
+            <small>PERSONA</small>
+          </div>
+          <div class="result-vertical" id="resultVertical">山野<br />松弛</div>
+        </div>
+      </div>
+
+      <div class="result-body">
+        <section class="radar-panel">
+          <div class="section-heading">
+            <span class="section-no">01</span>
+            <div>
+              <small>YOUR TRAVEL DNA</small>
+              <h2>你的六维图</h2>
+            </div>
+          </div>
+          <div class="radar-layout">
+            <div class="radar-canvas" id="resultRadar"></div>
+          </div>
+          <p class="radar-insight" id="radarInsight"></p>
+        </section>
+
+        <section class="cities-panel">
+          <div class="section-heading">
+            <span class="section-no">02</span>
+            <div>
+              <small>DESTINATION MATCH</small>
+              <h2>你会被这些目的地接住</h2>
+            </div>
+          </div>
+          <div class="city-grid" id="cityGrid"></div>
+        </section>
+
+        <section class="share-panel">
+          <div class="share-copy">
+            <span class="section-no">03 / SHARE YOUR PERSONA</span>
+            <h2>把你的旅格<br />带去更远的地方。</h2>
+            <p>保存一张属于你的旅行人格卡片，配上一段像你会发的话。</p>
+            <div class="share-actions">
+              <button class="primary-button" id="downloadCard" data-action="download">保存人格卡片 <span>↓</span></button>
+              <button class="outline-button" id="copyCaption" data-action="copy">复制分享文案</button>
+            </div>
+            <div class="share-note" id="shareNote">1080 × 1440 · 适合小红书 / 朋友圈</div>
+          </div>
+          <div class="share-preview-wrap">
+            <div class="share-preview" id="sharePreview">
+              <div class="preview-top"><span>旅格档案</span><span id="previewCode">NO. 04</span></div>
+              <div class="preview-name" id="previewName">山海出逃者</div>
+              <div class="preview-tagline" id="previewTagline">把日程表留在城市，<br>把呼吸带到山海。</div>
+              <div class="preview-energy" id="previewEnergy">间歇性高能量人 · 白天省电，晚上开机</div>
+              <div class="preview-radar" id="previewRadar"></div>
+              <div class="preview-cities" id="previewCities"></div>
+              <div class="preview-footer">24 个旅行瞬间 · 测出你的城市与旷野人格</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="result-footer-actions">
+          <button class="outline-button" data-action="restart">再测一次</button>
+          <button class="text-button" data-action="home">返回首页 <span>↗</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
